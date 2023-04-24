@@ -1,5 +1,5 @@
 import { async } from 'regenerator-runtime';
-import { TIMEOUT_SEC } from './config';
+import { TIMEOUT_SEC } from './config.js';
 
 const timeout = function (s) {
   return new Promise(function (_, reject) {
@@ -8,8 +8,6 @@ const timeout = function (s) {
     }, s * 1000);
   });
 };
-
-// 28.3 Uploading a new recipe - part 3
 
 export const AJAX = async function (url, uploadData = undefined) {
   try {
@@ -29,7 +27,7 @@ export const AJAX = async function (url, uploadData = undefined) {
     if (!res.ok) throw new Error(`${data.message} (${res.status})`);
     return data;
   } catch (err) {
-    console.log(err);
+    throw err;
   }
 };
 
@@ -38,7 +36,6 @@ export const numberToFraction = function (amount) {
   if (parseFloat(amount) === parseInt(amount)) {
     return amount;
   }
-  // Next 12 lines are cribbed from https://stackoverflow.com/a/23575406.
   const gcd = function (a, b) {
     if (b < 0.0000001) {
       return a;
