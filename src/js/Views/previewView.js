@@ -3,6 +3,19 @@ import icons from 'url:../../img/icons.svg'; // Parcel 2
 
 class PreviewView extends View {
   _parentElement = '';
+  _newParent = document.querySelector('.results');
+
+  showRecipe() {
+    this._newParent.addEventListener('click', function (e) {
+      const btn = e.target.closest('preview');
+      document.querySelector('.recipe').classList.add('show-recipe');
+    });
+  }
+
+  constructor() {
+    super();
+    this.showRecipe();
+  }
 
   _generateMarkup() {
     const id = window.location.hash.slice(1);

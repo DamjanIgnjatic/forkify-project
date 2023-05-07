@@ -5,10 +5,20 @@
   align-items: center;
   justify-content: space-between;
 
+  @media only screen and (max-width: $bp-medium) {
+    flex-direction: column;
+    max-height: 18rem;
+    gap: 1rem;
+    padding-top: 1rem;
+  }
   &__logo {
     margin-left: 4rem;
     height: 4.6rem;
     display: block;
+
+    @media only screen and (max-width: $bp-medium) {
+      margin-left: 0;
+    }
   }
 }
 
@@ -39,31 +49,38 @@
 
     &::placeholder {
       color: $color-grey-light-3;
+      font-size: 1.4rem;
     }
 
     @media only screen and (max-width: $bp-medium) {
       width: auto;
-
-      &::placeholder {
-        color: white;
-      }
     }
   }
 
   &__btn {
     font-weight: 600;
     font-family: inherit;
+    @media only screen and (max-width: $bp-medium) {
+      padding: 1.2rem;
+    }
   }
 }
 
 .nav {
   align-self: stretch;
   margin-right: 2.5rem;
+  @media only screen and (max-width: $bp-medium) {
+    margin-right: unset;
+  }
 
   &__list {
     list-style: none;
     display: flex;
     height: 100%;
+    @media only screen and (max-width: $bp-medium) {
+      justify-content: space-between;
+      padding: 1.5rem;
+    }
   }
 
   &__item {

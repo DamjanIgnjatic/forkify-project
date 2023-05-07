@@ -63,9 +63,45 @@ body {
     'head head'
     'list recipe';
 
+  @media only screen and (max-width: $bp-medium) {
+    grid-template-rows: unset;
+    min-height: 100vh;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'head'
+      'list'
+      'recipe';
+  }
+
   @media only screen and (max-width: $bp-large) {
     max-width: 100%;
     margin: 0;
     border-radius: 0;
+  }
+}
+
+.show-recipe {
+  transform: translateY(0%) !important;
+}
+
+.recipe__btn-close {
+  color: #f9f5f3;
+  z-index: 1;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+  background-image: linear-gradient(to bottom right, #fbdb89, #f48982);
+  border-radius: 50%;
+  padding: 0.1rem 2rem;
+  font-size: 4rem;
+  display: none;
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  box-shadow: 0 0 5px #0006;
+  transition: all 0.4s;
+
+  @media only screen and (max-width: $bp-medium) {
+    display: block;
   }
 }

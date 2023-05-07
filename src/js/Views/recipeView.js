@@ -30,8 +30,21 @@ class RecipeView extends View {
     });
   }
 
+  closeRecipe() {
+    this._parentElement.addEventListener('click', function (e) {
+      const btn = e.target.closest('recipe__btn-close');
+      document.querySelector('.recipe').classList.remove('show-recipe');
+    });
+  }
+
+  constructor() {
+    super();
+    this.closeRecipe();
+  }
+
   _generateMarkup() {
     return `
+    <div class="recipe__btn-close">X</div>
       <figure class="recipe__fig">
         <img src="${this._data.image}" alt="${
       this._data.title
